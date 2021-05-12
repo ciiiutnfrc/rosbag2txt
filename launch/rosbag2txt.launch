@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="bagfile" />
+
+  <node pkg="rosbag" type="play" name="rosbag_play" args="--pause $(arg bagfile)" output="screen" />
+
+  <param name="out_dir" value="$(find rosbag2txt)" />
+  <node pkg="rosbag2txt" type="odom_scan_log.py" name="odom_scan_log" output="screen" />
+
+</launch>
